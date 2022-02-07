@@ -8,8 +8,8 @@ build/
 # Database & It's Schema
 config/db.sqlite3
 
-pkg/db/ent/*
-!pkg/db/ent/schema
+pkg/database/ent/*
+!pkg/database/ent/schema
 
 # #######################
 # Some files & folders
