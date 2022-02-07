@@ -1,15 +1,19 @@
-# Binaries for programs and plugins
+# #######################
+# Binaries & build
 *.exe
 *.exe~
-*.dll
-*.so
-*.dylib
+build/
 
-# Test binary, built with `go test -c`
-*.test
+# #######################
+# Database & It's Schema
+config/db.sqlite3
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+pkg/db/ent/*
+!pkg/db/ent/schema
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# #######################
+# Some files & folders
+config/dll
+make
+
+# #######################
