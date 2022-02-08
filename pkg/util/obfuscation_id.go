@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/er-azh/fortnitemanifest"
+	"github.com/er-azh/egmanifest"
 )
 
 func GetLaunchCommand(gamePath string) (string, error) {
@@ -28,7 +28,7 @@ func GetLaunchCommand(gamePath string) (string, error) {
 	}
 	defer f.Close()
 
-	manifest, err := fortnitemanifest.ParseManifest(f)
+	manifest, err := egmanifest.ParseManifest(f)
 	if err != nil {
 		return "", err
 	}
