@@ -28,13 +28,13 @@ func launchGame(gamePath string, launchArgs, dllPaths []string) {
 
 	time.Sleep(time.Second * 1)
 	if len(dllPaths) > 0 {
-		log.Info("Injecting Dlls...")
+		// log.Info("Injecting Dlls...")
 		for _, dllPath := range dllPaths {
 			checkErr(system.InjectDLL(uint32(fnProcess.Process.Pid), dllPath))
 			log.Info(dllPath + " injected!")
 		}
 		system.ResumeProcess(uint32(fnProcess.Process.Pid))
-		log.Info("All Dlls injected!")
+		// log.Info("All Dlls injected!")
 	}
 
 	// If the game is closed kill the launcher and the eac shipping

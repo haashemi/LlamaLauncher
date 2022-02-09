@@ -63,8 +63,8 @@ func Run() {
 	// fmt.Println(launchArgs)
 	clearCMD()
 	fmt.Println(llamalog.Magenta(">> LlamaLauncher >> Part of LlamaNite projects"))
-	fmt.Println(llamalog.Magenta(">> LlamaNite Projects >> https://llamanite.com\n"))
-	fmt.Println(llamalog.Magenta(">> LlamaLaucnher SourceCode >> https://https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
+	fmt.Println(llamalog.Magenta(">> LlamaNite projects >> https://llamanite.com"))
+	fmt.Println(llamalog.Magenta(">> LlamaLaucnher source code >> https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
 	fmt.Println(llamalog.Magenta(">> STARTING FORTNITE <<"))
 	launchGame(gamePath, launchArgs, []string{"config/PlataniumV2.dll"})
 }
@@ -79,7 +79,7 @@ func checkErr(err error) {
 }
 
 func clearCMD() {
-	// \033[H  => change cursot position to default
+	// \033[H  => change cursor position to default
 	// \x1b[2J => Blank screen
 	fmt.Println("\033[H\x1b[2J")
 }
