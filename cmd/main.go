@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"llamalauncher/pkg/database"
 	"llamalauncher/pkg/egl"
+	"llamalauncher/pkg/system"
 	"llamalauncher/pkg/util"
 	"os"
-	"os/exec"
 	"regexp"
 	"strings"
 	"time"
@@ -23,6 +23,8 @@ func init() {
 }
 
 func Run() {
+	checkErr(system.EnableWindowsTerminalSequences())
+
 	account, err := selectAccount()
 	checkErr(err)
 
@@ -57,11 +59,12 @@ func Run() {
 		"-fromfl="+strings.ToLower(strings.Join(antiCheatRegex.FindAllString(caledra.Provider, -1), "")),
 		"-caldera="+caledra.Jwt,
 	)
+
 	// fmt.Println(launchArgs)
 	clearCMD()
 	fmt.Println(llamalog.Magenta(">> LlamaLauncher >> Part of LlamaNite projects"))
-	fmt.Println(llamalog.Magenta(">> Download from >> https://launcher.llamanite.com\n"))
-	// fmt.Println(llamalog.Magenta(">> https://www.LlamaNite.com\n"))
+	fmt.Println(llamalog.Magenta(">> LlamaNite Projects >> https://llamanite.com\n"))
+	fmt.Println(llamalog.Magenta(">> LlamaLaucnher SourceCode >> https://https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
 	fmt.Println(llamalog.Magenta(">> STARTING FORTNITE <<"))
 	launchGame(gamePath, launchArgs, []string{"config/PlataniumV2.dll"})
 }
@@ -76,7 +79,7 @@ func checkErr(err error) {
 }
 
 func clearCMD() {
-	cmd := exec.Command("cmd", "/c", "cls") //Windows example, its tested
-	cmd.Stdout = os.Stdout
-	cmd.Run()
+	// \033[H  => change cursot position to default
+	// \x1b[2J => Blank screen
+	fmt.Println("\033[H\x1b[2J")
 }

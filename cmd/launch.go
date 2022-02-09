@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"llamalauncher/pkg/injector"
+	"llamalauncher/pkg/system"
 	"os/exec"
 	"time"
 )
@@ -14,26 +14,26 @@ func launchGame(gamePath string, launchArgs, dllPaths []string) {
 	log.Info("Running Fortnite Launcher...")
 	fnLauncher := exec.Command(launcherExe, launchArgs...)
 	checkErr(fnLauncher.Start())
-	injector.SuspendProcess(uint32(fnLauncher.Process.Pid))
+	system.SuspendProcess(uint32(fnLauncher.Process.Pid))
 
 	log.Info("Running Fortnite EAC Process...")
 	fnEacProcess := exec.Command(eacShippingExe, launchArgs...)
 	checkErr(fnEacProcess.Start())
-	injector.SuspendProcess(uint32(fnEacProcess.Process.Pid))
+	system.SuspendProcess(uint32(fnEacProcess.Process.Pid))
 
 	log.Info("Running Fortnite Process...")
 	fnProcess := exec.Command(shippingExe, launchArgs...)
 	checkErr(fnProcess.Start())
-	injector.SuspendProcess(uint32(fnProcess.Process.Pid))
+	system.SuspendProcess(uint32(fnProcess.Process.Pid))
 
 	time.Sleep(time.Second * 1)
 	if len(dllPaths) > 0 {
 		log.Info("Injecting Dlls...")
 		for _, dllPath := range dllPaths {
-			checkErr(injector.InjectDLL(uint32(fnProcess.Process.Pid), dllPath))
+			checkErr(system.InjectDLL(uint32(fnProcess.Process.Pid), dllPath))
 			log.Info(dllPath + " injected!")
 		}
-		injector.ResumeProcess(uint32(fnProcess.Process.Pid))
+		system.ResumeProcess(uint32(fnProcess.Process.Pid))
 		log.Info("All Dlls injected!")
 	}
 
