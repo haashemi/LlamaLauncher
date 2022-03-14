@@ -44,6 +44,15 @@ func Run() {
 	launchCommand, err := util.GetLaunchCommand(gamePath)
 	checkErr(err)
 
+	antiCheat := strings.ToLower(strings.Join(antiCheatRegex.FindAllString(caledra.Provider, -1), ""))
+	var noAntiCheat string
+	switch antiCheat {
+	case "eac":
+		noAntiCheat = "-nobe"
+	case "be":
+		noAntiCheat = "-noeac"
+	}
+
 	launchArgs := append(strings.Split(launchCommand[1:], " "),
 		"-AUTH_LOGIN=unused",
 		"-AUTH_PASSWORD="+exchangeCode.Code,
@@ -51,12 +60,13 @@ func Run() {
 		"-epicapp=Fortnite",
 		"-epicenv=Prod",
 		"-EpicPortal",
+		"-steamimportavailable", // Is it important ot no? I don't know!
 		"-epicusername="+account.DisplayName,
 		"-epicuserid="+account.AccountID,
 		"-epiclocale=en",
 		"-epicsandboxid=fn",
-		"-nobe",
-		"-fromfl="+strings.ToLower(strings.Join(antiCheatRegex.FindAllString(caledra.Provider, -1), "")),
+		noAntiCheat,
+		"-fromfl="+antiCheat,
 		"-caldera="+caledra.Jwt,
 	)
 
@@ -66,7 +76,7 @@ func Run() {
 	fmt.Println(llamalog.Magenta(">> LlamaNite projects >> https://llamanite.com"))
 	fmt.Println(llamalog.Magenta(">> LlamaLaucnher source code >> https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
 	fmt.Println(llamalog.Magenta(">> STARTING FORTNITE <<"))
-	launchGame(gamePath, launchArgs, []string{"config/PlataniumV2.dll"})
+	launchGame(gamePath, strings.ToUpper(antiCheat), launchArgs, []string{"config/PlataniumV2.dll"})
 }
 
 func checkErr(err error) {
