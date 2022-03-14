@@ -1,12 +1,13 @@
 <h1 align="center"> >> LlamaLauncher << </h1> 
 
-<h4 align="center">Simple Fortnite Launcher with DLL-Injection ability | inspired by <a href="https://github.com/Londiuh/FortniteLauncher">Londiuh's Launcher</a></h4>
+<h4 align="center">Simple Fortnite Launcher with DLL-Injection ability</a></h4>
+<h6 align="center">inspired by <a href="https://github.com/Londiuh/FortniteLauncher">Londiuh's Launcher</a></h6>
 
 ------
 
 ## How to use it?
 
-  - Download the latest release ( or [build it](https://github.com/MR-AliHaashemi/LlamaLauncher/edit/main/README.md#how-to-build) yourself )
+  - Download the latest release ( or [build it](#how-to-build) yourself )
   - Open Fiddler (if you want to debug the HTTP requests)
   - And just start `llamalauncher.exe`!
 
@@ -35,6 +36,7 @@
 ```bash
 $ git clone https://github.com/MR-AliHaashemi/LlamaLauncher
 $ cd LlamaLauncher
+$ ent generate ./pkg/database/schema/
 $ go mod tidy
 $ go build .
 ```
