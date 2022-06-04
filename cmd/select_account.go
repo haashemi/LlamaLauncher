@@ -78,7 +78,7 @@ func getRefreshedAccounts() ([]*ent.User, error) {
 			SetAccessToken(newData.AccessToken).
 			SetAccessTokenExpiresAt(newData.ExpiresAt).
 			SetRefreshToken(newData.RefreshToken).
-			SetRefresTokenExpiresAt(newData.RefreshExpiresAt).
+			SetRefreshTokenExpiresAt(newData.RefreshExpiresAt).
 			Exec(context.Background())
 		if err != nil {
 			return nil, err

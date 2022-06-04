@@ -60,7 +60,6 @@ func Run() {
 		"-epicapp=Fortnite",
 		"-epicenv=Prod",
 		"-EpicPortal",
-		"-steamimportavailable", // Is it important ot no? I don't know!
 		"-epicusername="+account.DisplayName,
 		"-epicuserid="+account.AccountID,
 		"-epiclocale=en",
@@ -74,7 +73,7 @@ func Run() {
 	clearCMD()
 	fmt.Println(llamalog.Magenta(">> LlamaLauncher >> Part of LlamaNite projects"))
 	fmt.Println(llamalog.Magenta(">> LlamaNite projects >> https://llamanite.com"))
-	fmt.Println(llamalog.Magenta(">> LlamaLaucnher source code >> https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
+	fmt.Println(llamalog.Magenta(">> LlamaLauncher source code >> https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
 	fmt.Println(llamalog.Magenta(">> STARTING FORTNITE <<"))
 	launchGame(gamePath, strings.ToUpper(antiCheat), launchArgs, []string{"config/PlataniumV2.dll"})
 }

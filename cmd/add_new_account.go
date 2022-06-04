@@ -36,6 +36,6 @@ func addNewAccount() (*ent.User, error) {
 		SetAccessToken(data.AccessToken).
 		SetAccessTokenExpiresAt(data.ExpiresAt).
 		SetRefreshToken(data.RefreshToken).
-		SetRefresTokenExpiresAt(data.RefreshExpiresAt).
+		SetRefreshTokenExpiresAt(data.RefreshExpiresAt).
 		Save(context.Background())
 }
