@@ -20,7 +20,7 @@ func (User) Fields() []ent.Field {
 		field.Time("access_token_expires_at"),
 
 		field.String("refresh_token"),
-		field.Time("refres_token_expires_at"),
+		field.Time("refresh_token_expires_at"),
 	}
 }
 

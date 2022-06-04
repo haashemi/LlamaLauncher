@@ -12,13 +12,13 @@ type CalderaData struct {
 	Provider string `json:"provider"`
 }
 
-func GetCaldera(accoutnID, exchangeCode string) (*CalderaData, error) {
+func GetCaldera(accountID, exchangeCode string) (*CalderaData, error) {
 	buf := new(bytes.Buffer)
 	json.NewEncoder(buf).Encode(map[string]interface{}{
-		"account_id":    accoutnID,
+		"account_id":    accountID,
 		"exchange_code": exchangeCode,
 		"test_mode":     false,
-		"epic_app":      "fortntie",
+		"epic_app":      "fortnite",
 		"nvidia":        false,
 	})
 
