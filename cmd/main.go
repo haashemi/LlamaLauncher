@@ -75,7 +75,7 @@ func Run() {
 	fmt.Println(llamalog.Magenta(">> LlamaNite projects >> https://llamanite.com"))
 	fmt.Println(llamalog.Magenta(">> LlamaLauncher source code >> https://github.com/MR-AliHaashemi/LlamaLauncher\n"))
 	fmt.Println(llamalog.Magenta(">> STARTING FORTNITE <<"))
-	launchGame(gamePath, strings.ToUpper(antiCheat), launchArgs, []string{"config/PlataniumV2.dll"})
+	launchGame(gamePath, strings.ToUpper(antiCheat), launchArgs, []string{".\\config\\PlataniumV2.dll"})
 }
 
 func checkErr(err error) {
