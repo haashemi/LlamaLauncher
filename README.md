@@ -36,7 +36,7 @@
 ### Build commands:
 
 ```bash
-$ git clone https://github.com/MR-AliHaashemi/LlamaLauncher
+$ git clone https://github.com/haashemi/LlamaLauncher
 $ cd LlamaLauncher
 $ ent generate ./pkg/database/schema/
 $ go mod tidy
